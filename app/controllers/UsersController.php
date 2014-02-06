@@ -29,17 +29,6 @@ class UsersController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     * POST http://localhost/laravel/users
-     */
-
-    public function store() {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
