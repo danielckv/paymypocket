@@ -9,8 +9,13 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		Schema::create('paymypoc', function($table)
+		{
+		    $table->increments('id');
+		});
+		
 		Eloquent::unguard();
-		return View::response->getAllUsers();
+		// $this->call('UserTableSeeder');
 	}
 
 }

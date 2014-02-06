@@ -11,5 +11,7 @@
 |
 */
 
-Route::controller('users', 'UsersController');
-Route::ccontroler('paypal', 'PaypalController');
+Route::get('/', function()
+{
+	return View::make('hello');
+});
