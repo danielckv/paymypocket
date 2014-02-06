@@ -11,6 +11,9 @@
 |
 */
 
+Route::resource('pockets', 'PocketsController');
+Route::resource('activities', 'ActivitiesController');
+Route::resource('users', 'UsersController');
 Route::get('/', function()
 {
 	return View::make('hello');

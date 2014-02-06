@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'paymypoc',
-			'username'  => 'paymymoc',
-			'password'  => '123123',
+			'database'  => 'paymypoc_db',
+			'username'  => 'paymymoc_dev',
+			'password'  => '?uEH4stU.rtV',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
