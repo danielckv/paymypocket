@@ -14,6 +14,7 @@
 Route::resource('pockets', 'PocketsController');
 Route::resource('activities', 'ActivitiesController');
 Route::resource('users', 'UsersController');
+Route::resource('rewards', 'RewardsController');
 
 Route::post('users/create', array('as'=>'create','uses' => 'UsersController@create'));
 

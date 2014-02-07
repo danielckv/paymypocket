@@ -63,14 +63,18 @@ class ActivitiesController extends BaseController {
     public function setActivityStatus(){
         $input = Input::All();
 
-        $status = new ActivityStatus();
-        $status->activityID = $input['activityID'];
-        $status->pocketID = $input['pocketID'];
-        $status->status = $input['status'];
+        $count = ActivityStatus::where('activityID', $input['activityID']);
+        if($count->count() <= 0){
+            $status = new ActivityStatus();
+            $status->activityID = $input['activityID'];
+            $status->pocketID = $input['pocketID'];
+            $status->status = $input['status'];
 
-        $stats->save();
-
-
+            $stats->save();         
+        }else{
+            $count->status = $input['status'];
+            $count->save();
+        }
     }
 
     /**
