@@ -39,8 +39,7 @@ class UsersController extends BaseController {
     		$d = $count->first();
 	    	$dataReturend = array('uniq' => $d->uniqID,'exists' => true);
     	}
-    	
-       
+    
         $response = Response::json($dataReturend);
 		$response->header('Content-Type', 'application/json');
 		return $response;

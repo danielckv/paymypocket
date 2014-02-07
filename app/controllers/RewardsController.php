@@ -2,6 +2,11 @@
 
 class RewardsController extends BaseController {
 
+	/**
+     * Create new reward record.
+     *
+     * @return Response
+     */
 	public function create(){
 
 		$input = Input::All();
@@ -16,6 +21,12 @@ class RewardsController extends BaseController {
 
 	}
 
+	/**
+     * Delete Reward by id
+     *
+     * @param  int  $id
+     * @return Response
+     */
 	public function delete($id){
 		$reward = Reward::find($id);
 
@@ -28,6 +39,11 @@ class RewardsController extends BaseController {
         );
 	}
 
+	/**
+     * get record by id from database.
+     *
+     * @return Response
+     */
 	public function get(){
 		$input = Input::All();
 
