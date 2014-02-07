@@ -35,7 +35,7 @@ class UsersController extends BaseController {
 	        $user->save();	    	
 	        
 	        $dataReturned = array('uniq' => $user->uniqID,'exists' => false);
-    	}else{
+    	} else {
     		$d = $count->first();
 	    	$dataReturend = array('uniq' => $d->uniqID,'exists' => true);
     	}

@@ -19,12 +19,12 @@ Route::post('users/create', array('as'=>'create','uses' => 'UsersController@crea
 
 Route::post('pockets/create', array('as'=>'create','uses' => 'PocketsController@create'));
 Route::post('pockets/connect', array('as'=>'connect','uses' => 'PocketsController@connect'));
+Route::post('pockets/getStatistics', array('as'=>'getStatistics','uses' => 'PocketsController@getStatistics'));
 
 Route::post('activities/create', array('as'=>'create','uses' => 'ActivitiesController@create'));
 Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@get'));
 Route::post('activities/getPoints', array('as'=>'getPoints','uses' => 'ActivitiesController@getPoints'));
 Route::post('activities/setActivityStatus', array('as'=>'setActivityStatus','uses' => 'ActivitiesController@setActivityStatus'));
-
 
 
 Route::get('/', function()

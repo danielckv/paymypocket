@@ -29,7 +29,7 @@ class PocketsController extends BaseController {
 	    	$pocket->save();
 	    	
 	    	$data = array('pocketID' => $pocket->identifier);
-    	}else{
+    	} else {
 	    	$dd = $count->first();
 	    	$data = array('pocketID' => $dd->identifier);
     	}
@@ -39,6 +39,10 @@ class PocketsController extends BaseController {
 		$response->header('Content-Type', 'application/json');
 		return $response;
     	
+    }
+
+    public function getStatistics($pocketId) {
+        
     }
     
     public function connect(){
