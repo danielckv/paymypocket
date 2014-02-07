@@ -19,8 +19,8 @@ Route::resource('rewards', 'RewardsController');
 Route::post('users/create', array('as'=>'create','uses' => 'UsersController@create'));
 
 Route::post('pockets/create', array('as'=>'create','uses' => 'PocketsController@create'));
+Route::post('pockets/statistics', array('as'=>'statistics', 'uses' => 'PocketsController@statistics'));
 Route::post('pockets/connect', array('as'=>'connect','uses' => 'PocketsController@connect'));
-Route::post('pockets/getStatistics', array('as'=>'getStatistics','uses' => 'PocketsController@getStatistics'));
 
 Route::post('activities/create', array('as'=>'create','uses' => 'ActivitiesController@create'));
 Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@get'));

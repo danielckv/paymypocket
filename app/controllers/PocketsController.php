@@ -27,7 +27,7 @@ class PocketsController extends BaseController {
 	    	$pocket->save();
 	    	
 	    	$data = array('pocketID' => $pocket->identifier);
-    	} 
+    	}
         else
         {
 	    	$dd = $count->first();
@@ -45,14 +45,14 @@ class PocketsController extends BaseController {
      * @param  int  $pocketId
      * @return Response
      */
-    public function getStatistics() {
+    public function statistics() {
         $input = Input::All();
         $weekFuture = date("Y-m-d");
         $lastWeek   = date("Y-m-d", strtotime("-1 week"));
         $stats = DB::table('activitiesStatus')->
-            join('activites', 'activitiesStatus.activityID', '=', 'activities.id')
-            ->where(array('activitiesStatus.pocketID' => $input['pocketId'],
-            'activitiesStatus.status' => 3))
+            join('activities', 'activitiesStatus.activityID', '=', 'activities.id')
+            ->where('activitiesStatus.pocketID', '=', $input['pocketId'])
+            ->where('activitiesStatus.status', '=', 3)
             ->where('activitiesStatus.updated_at', '<', $weekFuture)
             ->where('activitiesStatus.updated_at', '>', $lastWeek)
             ->sum('activities.credits');
@@ -67,7 +67,7 @@ class PocketsController extends BaseController {
      *
      * @return Response
      */
-    public function connect(){
+    public function connect() {
 
 	    $input = Input::All();
 	    $pocket = Pocket::where('identifier', $input['pocket']);
