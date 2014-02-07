@@ -18,9 +18,7 @@ class PocketsController extends BaseController {
      * @return Response
      */
     public function create() {
-    
     	$input = Input::All();
-    	
     	$count = Pocket::where('guarantor', $input['userid']);
     	if($count->count() <= 0) {
 	    	$pocket = new Pocket();
@@ -39,7 +37,6 @@ class PocketsController extends BaseController {
     	$response = Response::json($data);
 		$response->header('Content-Type', 'application/json');
 		return $response;
-    	
     }
 
     /**
