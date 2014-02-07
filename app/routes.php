@@ -25,6 +25,12 @@ Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@
 Route::post('activities/getPoints', array('as'=>'getPoints','uses' => 'ActivitiesController@getPoints'));
 Route::post('activities/setActivityStatus', array('as'=>'setActivityStatus','uses' => 'ActivitiesController@setActivityStatus'));
 
+Route::post('rewards/create', array('as'=>'create','uses' => 'RewardsController@create'));
+Route::post('rewards/delete', array('as'=>'delete','uses' => 'RewardsController@delete'));
+Route::post('rewards/get', array('as'=>'get','uses' => 'RewardsController@get'));
+
+
+
 
 
 Route::get('/', function()
