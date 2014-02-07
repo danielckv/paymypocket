@@ -32,8 +32,6 @@ Route::post('rewards/delete', array('as'=>'delete','uses' => 'RewardsController@
 Route::post('rewards/get', array('as'=>'get','uses' => 'RewardsController@get'));
 
 
-
-
 Route::get('/', function()
 {
 	return View::make('hello');
