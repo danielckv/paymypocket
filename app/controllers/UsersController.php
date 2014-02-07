@@ -21,13 +21,6 @@ class UsersController extends BaseController {
      */
     public function create() {
     	$input = Input::all();
-        $user = new User();
-        $user->email = $input['email'];
-        $user->firstname = $input['firstname'];
-        $user->lastname = $input['lastname'];
-        $user->fbToken = $input['token'];
-        $user->fbId = $input['facebookId'];
-        $user->save();
         
     	$count = User::where('fbId', $input['facebookId']);
     	if($count->count() <= 0){
