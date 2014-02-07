@@ -60,6 +60,19 @@ class ActivitiesController extends BaseController {
 		return $response;
     }
 
+    public function setActivityStatus(){
+        $input = Input::All();
+
+        $status = new ActivityStatus();
+        $status->activityID = $input['activityID'];
+        $status->pocketID = $input['pocketID'];
+        $status->status = $input['status'];
+
+        $stats->save();
+
+
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -23,6 +23,9 @@ Route::post('pockets/connect', array('as'=>'connect','uses' => 'PocketsControlle
 Route::post('activities/create', array('as'=>'create','uses' => 'ActivitiesController@create'));
 Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@get'));
 Route::post('activities/getPoints', array('as'=>'getPoints','uses' => 'ActivitiesController@getPoints'));
+Route::post('activities/setActivityStatus', array('as'=>'setActivityStatus','uses' => 'ActivitiesController@setActivityStatus'));
+
+
 
 Route::get('/', function()
 {
