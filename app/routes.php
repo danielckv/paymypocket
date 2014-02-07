@@ -15,8 +15,6 @@ Route::resource('pockets', 'PocketsController');
 Route::resource('activities', 'ActivitiesController');
 Route::resource('users', 'UsersController');
 
-<<<<<<< HEAD
-=======
 Route::post('users/create', array('as'=>'create','uses' => 'UsersController@create'));
 
 Route::post('pockets/create', array('as'=>'create','uses' => 'PocketsController@create'));
@@ -26,7 +24,6 @@ Route::post('activities/create', array('as'=>'create','uses' => 'ActivitiesContr
 Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@get'));
 Route::post('activities/getPoints', array('as'=>'getPoints','uses' => 'ActivitiesController@getPoints'));
 
->>>>>>> yoni
 Route::get('/', function()
 {
 	return View::make('hello');
