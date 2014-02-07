@@ -15,6 +15,18 @@ Route::resource('pockets', 'PocketsController');
 Route::resource('activities', 'ActivitiesController');
 Route::resource('users', 'UsersController');
 
+<<<<<<< HEAD
+=======
+Route::post('users/create', array('as'=>'create','uses' => 'UsersController@create'));
+
+Route::post('pockets/create', array('as'=>'create','uses' => 'PocketsController@create'));
+Route::post('pockets/connect', array('as'=>'connect','uses' => 'PocketsController@connect'));
+
+Route::post('activities/create', array('as'=>'create','uses' => 'ActivitiesController@create'));
+Route::post('activities/get', array('as'=>'get','uses' => 'ActivitiesController@get'));
+Route::post('activities/getPoints', array('as'=>'getPoints','uses' => 'ActivitiesController@getPoints'));
+
+>>>>>>> yoni
 Route::get('/', function()
 {
 	return View::make('hello');

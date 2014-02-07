@@ -1,6 +1,6 @@
 <?php
 
-class ActivitesController extends BaseController {
+class PocketsController extends BaseController {
 
 	/**
      * Display all users.
@@ -18,7 +18,46 @@ class ActivitesController extends BaseController {
      * @return Response
      */
     public function create() {
-    	$input = Input::all();
+    
+    	$input = Input::All();
+    	
+    	$count = Pocket::where('guarantor', $input['userid']);
+    	if($count->count() <= 0){
+	    	$pocket = new Pocket();
+	    	$pocket->guarantor = $input['userid'];
+	    	$pocket->identifier = uniqid();
+	    	$pocket->save();
+	    	
+	    	$data = array('pocketID' => $pocket->identifier);
+    	}else{
+	    	$dd = $count->first();
+	    	$data = array('pocketID' => $dd->identifier);
+    	}
+    	
+    	
+    	$response = Response::json($data);
+		$response->header('Content-Type', 'application/json');
+		return $response;
+    	
+    }
+    
+    public function connect(){
+	    $input = Input::All();
+	    $pocket = Pocket::where('identifier', $input['pocket']);
+	    if($pocket->count() > 0){
+		    $connect = new ConnectPocket();
+		    $connect->pocketID = $input['pocket'];
+		    $connect->userID = $input['userid'];
+		    $connect->save();
+		    
+		    $dataReturend = array('error' => false);
+	    }else{
+		    $dataReturend = array('error' => true);
+	    }
+	    
+	    $response = Response::json($dataReturend);
+		$response->header('Content-Type', 'application/json');
+		return $response;
     }
 
     /**
