@@ -22,18 +22,19 @@ class PocketsController extends BaseController {
     	$input = Input::All();
     	
     	$count = Pocket::where('guarantor', $input['userid']);
-    	if($count->count() <= 0){
+    	if($count->count() <= 0) {
 	    	$pocket = new Pocket();
 	    	$pocket->guarantor = $input['userid'];
 	    	$pocket->identifier = uniqid();
 	    	$pocket->save();
 	    	
 	    	$data = array('pocketID' => $pocket->identifier);
-    	} else {
+    	} 
+        else
+        {
 	    	$dd = $count->first();
 	    	$data = array('pocketID' => $dd->identifier);
     	}
-    	
     	
     	$response = Response::json($data);
 		$response->header('Content-Type', 'application/json');
@@ -41,21 +42,39 @@ class PocketsController extends BaseController {
     	
     }
 
+    /**
+     * Get statistics on specific pocket
+     *
+     * @param  int  $pocketId
+     * @return Response
+     */
     public function getStatistics($pocketId) {
-        
+        $stats = DB::table('activitiesStatus')->
+            join('activites', 'activitiesStatus.activityID', '=', 'activities.id')
+            ->where(array('activitiesStatus.pocketID' => $pocketId,
+            'activitiesStatus.status' => 3,
+            'updated_at'=>))->sum('activities.credits');
     }
     
+    /**
+     * connecting new pocket to the application
+     *
+     * @return Response
+     */
     public function connect(){
+
 	    $input = Input::All();
 	    $pocket = Pocket::where('identifier', $input['pocket']);
-	    if($pocket->count() > 0){
+	    if($pocket->count() > 0) {
 		    $connect = new ConnectPocket();
 		    $connect->pocketID = $input['pocket'];
 		    $connect->userID = $input['userid'];
 		    $connect->save();
 		    
 		    $dataReturend = array('error' => false);
-	    }else{
+	    }
+        else
+        {
 		    $dataReturend = array('error' => true);
 	    }
 	    
@@ -69,7 +88,6 @@ class PocketsController extends BaseController {
      *
      * @param  int  $id
      * @return Response
-     * GET http://localhost/laravel/users/1
      */
 
     public function get($id) {
