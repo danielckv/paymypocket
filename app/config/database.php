@@ -56,7 +56,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'paymypoc_db',
-			'username'  => 'paymymoc_dev',
+			'username'  => 'paymypoc_dev',
 			'password'  => '?uEH4stU.rtV',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
