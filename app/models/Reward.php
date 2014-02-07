@@ -1,12 +1,12 @@
 <?php
 
-class Activity extends Eloquent {
+class Reward extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'activities';
+	protected $table = 'rewards';
 
 }
