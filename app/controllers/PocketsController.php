@@ -48,12 +48,13 @@ class PocketsController extends BaseController {
      * @param  int  $pocketId
      * @return Response
      */
-    public function getStatistics($pocketId) {
+    public function getStatistics() {
+        $input = Input::All();
         $weekFuture = date("Y-m-d");
         $lastWeek   = date("Y-m-d", strtotime("-1 week"));
         $stats = DB::table('activitiesStatus')->
             join('activites', 'activitiesStatus.activityID', '=', 'activities.id')
-            ->where(array('activitiesStatus.pocketID' => $pocketId,
+            ->where(array('activitiesStatus.pocketID' => $input['pocketId'],
             'activitiesStatus.status' => 3))
             ->where('activitiesStatus.updated_at', '<', $weekFuture)
             ->where('activitiesStatus.updated_at', '>', $lastWeek)
